@@ -27,6 +27,7 @@
 //
 
 #include "noise.h"
+#include "pcg_basic.h"
 
 
 typedef struct noise {
@@ -34,7 +35,12 @@ typedef struct noise {
 	int p[512];
 } noise;
 
-void init_noise()
+void init_noise(noise* n)
 {
-
+	for (size_t i = 0; i < 256; ++i)
+	{
+		n->p[i] = i;
+	}	
+	pcg32_random_t rand;
+	pcg32_srandom_r(&rand, n->seed, 0xda3e39cb94b95bdbULL);
 }

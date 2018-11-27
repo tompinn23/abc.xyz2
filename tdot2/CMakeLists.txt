@@ -11,7 +11,7 @@ add_subdirectory(deps/zlib)
 
 
 # Add source to this project's executable.
-add_executable(tdot2 tdot2.c log.c engine.c file.c noise.c)
+add_executable(tdot2 tdot2.c log.c engine.c file.c noise.c pcg_basic.c)
 
 target_include_directories(tdot2 PUBLIC . deps/sdl2/include deps/physfs/src)
 target_link_libraries(tdot2 SDL2 lodepng physfs)
